@@ -1,6 +1,13 @@
+body {
+    margin: 0;
+}
+
 .app {
     width: 480px;
     margin: 0 auto;
+    min-height: 100vh;
+    border: 1px solid rgba(0,0,0,.05);
+    padding: 20px;
 }
 
 .list {
@@ -8,8 +15,9 @@
 }
 
 .list__item {
-    border-bottom: 1px solid rgba(0,0,0,.24);
+    border-bottom: 1px solid rgba(0,0,0,.05);
     padding: 10px;
+    font-style: italic;
 }
 
 input {
