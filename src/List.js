@@ -4,7 +4,10 @@ export default function List(props) {
     return (
         <div className="list">
             {props.items.map(item => (
-                <ListItem key={item.id} onDelete={props.onDelete.bind(null, item.id)} text={item.text} />
+                <ListItem key={item.id} 
+                    onDelete={props.onDelete.bind(null, item.id)} 
+                    text={item.text} 
+                />
             ))}
         </div>
     );
