@@ -17,10 +17,19 @@ export default function App(props) {
         setItems(items);
     }
 
+    function handleDelete(id) {
+        const index = items.findIndex(item => item.id === id);
+        if (index !== -1) {
+            items = items.slice();
+            items.splice(index, 1);
+            setItems(items);
+        }
+    }
+
     return (
         <div className="app">
             <Form onAdd={handleAdd} />
-            <List items={items} />
+            <List items={items} onDelete={handleDelete} />
         </div>
     );
 }
