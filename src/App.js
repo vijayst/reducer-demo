@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import Form from './Form';
 import List from './List';
 import './app.css';
-
-let i = 1;
+import todoReducer from './todoReducer';
 
 export default function App(props) {
-    let [items, setItems] = useState([]);
+    let [items, dispatch] = useReducer(todoReducer, []);
 
     function handleAdd(text) {
-        items = items.slice();
-        items.push({
-            id: i++,
+        dispatch({
+            type: 'ADD_TODO',
             text
         });
-        setItems(items);
     }
 
     function handleDelete(id) {
-        const index = items.findIndex(item => item.id === id);
-        if (index !== -1) {
-            items = items.slice();
-            items.splice(index, 1);
-            setItems(items);
-        }
+        dispatch({
+            type: 'DELETE_TODO',
+            id
+        });
     }
+
 
     return (
         <div className="app">
